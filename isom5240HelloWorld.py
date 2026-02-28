@@ -4,7 +4,6 @@ import streamlit as st
 
 # Function part
 # Load the age classification pipeline
-# The code below should be placed in the main part of the program
 def age_classifier(image_name):
     age_classifier = pipeline("image-classification",
                               model="prithivMLmods/open-age-detection")
@@ -24,5 +23,6 @@ def main():
     st.write("Predicted Age Range:")
     st.write(f"Age range: {age_classifier(image_name)[0]['label']}")
 
+# main part
 if __name__ == "__main__":
     main()
