@@ -2,14 +2,12 @@ from transformers import pipeline
 from PIL import Image
 import streamlit as st
 
+# Function part
 # Load the age classification pipeline
 # The code below should be placed in the main part of the program
-def age_classifier():
+def age_classifier(image_name):
     age_classifier = pipeline("image-classification",
                               model="akashmaggon/vit-base-age-classification")
-
-    image_name = "middleagedMan.jpg"
-    image_name = Image.open(image_name).convert("RGB")
 
     # Classify age
     age_predictions = age_classifier(image_name)
@@ -19,11 +17,12 @@ def age_classifier():
 def main():
     st.write("Title: Age Classification using ViT")
 
+    image_name = "middleagedMan.jpg"
+    image_name = Image.open(image_name).convert("RGB")
+
     # Display results
-    # print("Predicted Age Range:")
-    # print(f"Age range: {age_predictions[0]['label']}")
     st.write("Predicted Age Range:")
-    st.write(f"Age range: {age_classifier()[0]['label']}")
+    st.write(f"Age range: {age_classifier(image_name)[0]['label']}")
 
 if __name__ == "__main__":
     main()
