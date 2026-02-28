@@ -7,7 +7,7 @@ import streamlit as st
 # The code below should be placed in the main part of the program
 def age_classifier(image_name):
     age_classifier = pipeline("image-classification",
-                              model="akashmaggon/vit-base-age-classification")
+                              model="prithivMLmods/open-age-detection")
 
     # Classify age
     age_predictions = age_classifier(image_name)
